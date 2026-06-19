@@ -11,3 +11,11 @@ async def test_health_endpoints_report_application_and_database(api_context: Api
     assert ready.status_code == 200
     assert ready.json()['status'] == 'ok'
     assert ready.json()['database'] == 'ok'
+
+
+async def test_local_development_authenticates_without_a_token(api_context: ApiContext) -> None:
+    response = await api_context.client.get('/api/v1/auth/me')
+
+    assert response.status_code == 200
+    assert response.json()['organization_id'] == str(api_context.organization_id)
+    assert response.json()['roles'] == ['system_admin']

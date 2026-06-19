@@ -11,9 +11,13 @@ import jwt
 from fastapi import Depends
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jwt import InvalidTokenError, PyJWK
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import Settings, get_settings
 from app.core.exceptions import AuthenticationError, AuthorizationError
+from app.infrastructure.database.session import get_session
+from app.models import Organization
 
 
 class Role(StrEnum):
@@ -152,8 +156,30 @@ async def verify_access_token(token: str, settings: Settings) -> Principal:
 async def get_current_principal(
     credentials: HTTPAuthorizationCredentials | None = Depends(bearer),
     settings: Settings = Depends(get_settings),
+    session: AsyncSession = Depends(get_session),
 ) -> Principal:
-    if credentials is None or credentials.scheme.lower() != "bearer":
+    if credentials is None:
+        if settings.auth_mode != "local" or settings.environment not in {"development", "test"}:
+            raise AuthenticationError()
+        organization_id = await session.scalar(
+            select(Organization.id)
+            .where(Organization.active.is_(True))
+            .order_by(Organization.created_at, Organization.id)
+            .limit(1)
+        )
+        if organization_id is None:
+            raise AuthenticationError(
+                "No active organization is available; run `python -m app.cli seed-demo` first"
+            )
+        return Principal(
+            subject="local-system-admin",
+            organization_id=organization_id,
+            user_id=None,
+            email=None,
+            roles=frozenset({Role.SYSTEM_ADMIN}),
+            team_ids=frozenset(),
+        )
+    if credentials.scheme.lower() != "bearer":
         raise AuthenticationError()
     return await verify_access_token(credentials.credentials, settings)
 

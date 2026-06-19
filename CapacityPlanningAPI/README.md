@@ -24,15 +24,16 @@ The extracted product requirements and explicit assumptions are in
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -e ".[dev]"
-Copy-Item .env.example .env
 alembic upgrade head
-python -m app.cli seed --slug demo --name "Demo Organization"
+python -m app.cli seed-demo
 uvicorn app.main:app --reload
 ```
 
-Open `http://localhost:8000/api/v1/docs`. Local authentication still requires a signed
-token; the seed command prints a development system-admin token. Local tokens are rejected
-by staging and production configuration validation.
+Open `http://localhost:8000/api/v1/docs`. No `.env` file or bearer token is required in
+local development: unauthenticated requests use the first active organization as a local
+system administrator. The seed command still prints an optional development token for
+testing authenticated clients. Local authentication is rejected by staging and production
+configuration validation.
 
 ### Demo data
 
@@ -101,12 +102,13 @@ reject it and require OIDC authentication plus strong webhook secrets.
 
 ### SQL Server LocalDB
 
-The API accepts an ADO.NET connection string and converts it to the async SQLAlchemy ODBC
-URL used by both the application and Alembic. For the local `betteams` database, set:
+The API accepts an ADO.NET connection string from the deployment process and converts it to
+the async SQLAlchemy ODBC URL used by both the application and Alembic. For a PowerShell
+session using the local `betteams` database, set:
 
-```dotenv
-DATABASE_CONNECTION_STRING=Server=(localdb)\MSSQLLocalDB;Database=betteams;Trusted_Connection=True;MultipleActiveResultSets=true
-DATABASE_ODBC_DRIVER=ODBC Driver 18 for SQL Server
+```powershell
+$env:DATABASE_CONNECTION_STRING = 'Server=(localdb)\MSSQLLocalDB;Database=betteams;Trusted_Connection=True;MultipleActiveResultSets=true'
+$env:DATABASE_ODBC_DRIVER = 'ODBC Driver 18 for SQL Server'
 ```
 
 Then run `alembic upgrade head`. Jira issues, PaySpace employees and leave, signed webhook

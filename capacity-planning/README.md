@@ -3,15 +3,11 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## API connection
 
 The frontend calls FastAPI through the same-origin route at `/api/backend/*`. The route
-keeps the backend URL and development token on the Next.js server and avoids browser CORS
-configuration.
-
-```powershell
-Copy-Item .env.example .env.local
-```
-
-Set `CAPACITY_API_TOKEN` in `.env.local` to the development token printed by the backend
-seed command. `CAPACITY_API_URL` defaults to `http://127.0.0.1:8000/api/v1`.
+defaults to `http://127.0.0.1:8000/api/v1` and avoids browser CORS configuration. No
+`.env` file is needed. In local development, the API grants system-admin access to the
+first active organization when no bearer token is supplied. Deployed environments still
+forward the signed-in user's `Authorization` header and can set `CAPACITY_API_URL` in the
+process environment when the API is hosted elsewhere.
 
 In one terminal, start the backend:
 
@@ -19,7 +15,7 @@ In one terminal, start the backend:
 Set-Location ..\CapacityPlanningAPI
 .\.venv\Scripts\Activate.ps1
 alembic upgrade head
-python -m app.cli seed --slug demo --name "Demo Organization"
+python -m app.cli seed-demo
 uvicorn app.main:app --reload
 ```
 
