@@ -1,0 +1,101 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.subtitle {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.timelineItem {
+  position: relative;
+  padding-left: 1.5rem; /* 24px */
+}
+
+/* Dot on timeline */
+.timelineDot {
+  position: absolute;
+  left: 0;
+  top: 0.375rem; /* 6px */
+  height: 0.625rem; /* 10px */
+  width: 0.625rem; /* 10px */
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+}
+
+/* Line connecting dots */
+.timelineItem:not(:last-child) .timelineLine {
+  position: absolute;
+  bottom: -0.875rem; /* -14px */
+  left: 0.25rem; /* 4px */
+  top: 1.25rem; /* 20px */
+  width: 1px;
+  background-color: var(--color-border);
+}
+
+.card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-3);
+  background-color: var(--color-surface);
+}
+
+.cardHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.dayLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.dateLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+}
+
+.pointsLabel {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.issueTitle {
+  margin-top: var(--spacing-2);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.issueReason {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}

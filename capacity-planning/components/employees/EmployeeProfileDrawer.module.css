@@ -1,0 +1,410 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.headerSection {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+}
+
+.avatar {
+  display: flex;
+  height: 3rem; /* 48px */
+  width: 3rem; /* 48px */
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background-color: rgba(59, 130, 246, 0.1);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-status-blue);
+}
+
+.info {
+  min-width: 0;
+  flex: 1;
+}
+
+.nameGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.role {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.meta {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-3);
+}
+
+.metricCard {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-sunken);
+  padding: var(--spacing-3);
+}
+
+.metricLabel {
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-tertiary);
+}
+
+.metricValue {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.sectionSubtitle {
+  margin-top: 0.125rem;
+  font-size: 0.6875rem;
+  color: var(--color-text-tertiary);
+}
+
+.loadingState,
+.errorState,
+.chartEmpty {
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4);
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+.loadingState,
+.chartEmpty {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-sunken);
+  color: var(--color-text-tertiary);
+}
+
+.errorState {
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  background-color: rgba(239, 68, 68, 0.08);
+  color: #fca5a5;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--spacing-3);
+  font-size: 0.625rem;
+  color: var(--color-text-tertiary);
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.legend i {
+  width: 0.75rem;
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.assignedSwatch {
+  background-color: var(--color-accent);
+}
+
+.completedSwatch {
+  background-color: var(--color-status-green);
+}
+
+.chartContainer {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: linear-gradient(180deg, var(--color-surface-sunken), transparent);
+  padding: var(--spacing-2);
+}
+
+.chart {
+  display: block;
+  width: 100%;
+  min-width: 32rem;
+  height: auto;
+}
+
+.gridLine {
+  stroke: var(--color-border);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+
+.axisLabel {
+  fill: var(--color-text-tertiary);
+  font-size: 9px;
+}
+
+.assignedLine,
+.completedLine {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.assignedLine {
+  stroke: var(--color-accent);
+}
+
+.completedLine {
+  stroke: var(--color-status-green);
+}
+
+.assignedPoint,
+.completedPoint {
+  stroke: var(--color-surface);
+  stroke-width: 2;
+}
+
+.assignedPoint {
+  fill: var(--color-accent);
+}
+
+.completedPoint {
+  fill: var(--color-status-green);
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.detailItem {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: var(--spacing-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.detailItem:nth-child(odd) {
+  border-right: 1px solid var(--color-border);
+}
+
+.detailItem:nth-last-child(-n + 2) {
+  border-bottom: none;
+}
+
+.detailLabel {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.detailValue {
+  overflow: hidden;
+  font-size: 0.75rem;
+  color: var(--color-text-primary);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.loadPercent {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.itemCount {
+  min-width: 1.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-raised);
+  padding: 0.125rem 0.375rem;
+  text-align: center;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+.riskReason {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  background-color: var(--bg-status-amber);
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #fcd34d;
+}
+
+.issueList {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.issueItem {
+  padding: var(--spacing-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.issueItem:last-child {
+  border-bottom: none;
+}
+
+.issueItemContent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+}
+
+.issueInfo {
+  min-width: 0;
+}
+
+.issueKeyGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.issueKey {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.issueTitle {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.issuePoints {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-tertiary);
+}
+
+.emptyIssues {
+  padding: var(--spacing-6) var(--spacing-3);
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-text-tertiary);
+}
+
+.availabilityBox {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-3);
+}
+
+.leaveInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+}
+
+.leaveLabel {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.leaveDays {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.upcomingLeave {
+  margin-top: var(--spacing-3);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-sunken);
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.leaveRecord {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-2);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-2);
+  font-size: 0.6875rem;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 480px) {
+  .metricsGrid,
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailItem,
+  .detailItem:nth-child(odd),
+  .detailItem:nth-last-child(-n + 2) {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .detailItem:last-child {
+    border-bottom: none;
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
+    gap: var(--spacing-2);
+  }
+}

@@ -1,0 +1,49 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* Sizes */
+.sizeSm {
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.sizeMd {
+  padding: 0.25rem 0.625rem;
+  font-size: 0.875rem;
+}
+
+/* Variants */
+.variantGreen {
+  background-color: var(--bg-status-green);
+  color: var(--color-status-green);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.variantAmber {
+  background-color: var(--bg-status-amber);
+  color: var(--color-status-amber);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.variantRed {
+  background-color: var(--bg-status-red);
+  color: var(--color-status-red);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.variantBlue {
+  background-color: var(--bg-status-blue);
+  color: var(--color-accent-light);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.variantGrey {
+  background-color: var(--color-surface-raised);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}

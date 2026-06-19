@@ -1,0 +1,23 @@
+
+> capacity-planning@0.1.0 dev
+> next dev --hostname 127.0.0.1 --port 3000
+
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+✓ Ready in 2.2s
+
+ GET / 200 in 3.5s (next.js: 767ms, application-code: 2.7s)
+ GET /dashboard 200 in 1923ms (next.js: 1102ms, application-code: 821ms)
+ GET /planning 200 in 1392ms (next.js: 1171ms, application-code: 221ms)
+ GET /employees 200 in 1317ms (next.js: 1019ms, application-code: 298ms)
+ GET /teams 200 in 1144ms (next.js: 788ms, application-code: 357ms)
+ GET /reports 200 in 1070ms (next.js: 800ms, application-code: 270ms)
+ GET /admin 200 in 1006ms (next.js: 789ms, application-code: 217ms)
+ GET / 200 in 1588ms (next.js: 18ms, application-code: 1570ms)
+ GET /dashboard 200 in 1518ms (next.js: 13ms, application-code: 1505ms)
+ GET /planning 200 in 94ms (next.js: 13ms, application-code: 81ms)
+ GET /teams 200 in 132ms (next.js: 16ms, application-code: 116ms)
+ GET /employees 200 in 76ms (next.js: 8ms, application-code: 68ms)
+ GET /reports 200 in 182ms (next.js: 8ms, application-code: 174ms)
+ GET /admin 200 in 99ms (next.js: 8ms, application-code: 92ms)

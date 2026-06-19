@@ -1,0 +1,60 @@
+.container {
+  position: relative;
+  display: inline-flex;
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+.dot {
+  position: relative;
+  display: inline-flex;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+.pulse {
+  position: absolute;
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+  border-radius: var(--radius-full);
+  opacity: 0.4;
+  animation: pulseDot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.5);
+  }
+}
+
+/* Variants */
+.variantGreen {
+  background-color: var(--color-status-green);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+.variantAmber {
+  background-color: var(--color-status-amber);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+}
+
+.variantRed {
+  background-color: var(--color-status-red);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+}
+
+.variantBlue {
+  background-color: var(--color-status-blue);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+}
+
+.variantGrey {
+  background-color: var(--color-text-tertiary);
+}
