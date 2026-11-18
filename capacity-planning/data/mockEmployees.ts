@@ -136,7 +136,7 @@ export const mockTeamMembers: TeamMember[] = [
 /** Mock employee profile for drawer */
 export const mockEmployeeProfile: EmployeeProfile = {
   ...mockTeamMembers[2], // T. Jacobs — the overloaded frontend dev
-  team: 'Payments Platform',
+  team: 'Withdrawals',
   reportingLine: 'L. Dlamini → S. Pillay (CTO)',
   employmentType: 'Permanent',
   location: 'Durban, KZN',

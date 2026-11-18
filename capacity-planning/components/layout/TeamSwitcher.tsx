@@ -28,10 +28,13 @@ export function TeamSwitcher({
     const query = search.trim().toLowerCase();
 
     return teams.filter(team => {
+      const portfolio = teamPortfolio(team);
+      const portfolioLabel = displayPortfolioName(portfolio);
       const teamMatches =
         team.name.toLowerCase().includes(query) ||
         team.department.toLowerCase().includes(query) ||
-        team.portfolio?.toLowerCase().includes(query);
+        portfolio.toLowerCase().includes(query) ||
+        portfolioLabel.toLowerCase().includes(query);
       const memberMatches = team.id === selectedTeamId && members.some(member =>
         member.name.toLowerCase().includes(query) || member.role.toLowerCase().includes(query),
       );
@@ -44,7 +47,7 @@ export function TeamSwitcher({
     const portfolios = new Map<string, Map<string, Team[]>>();
 
     filtered.forEach(team => {
-      const portfolio = team.portfolio || 'Organization';
+      const portfolio = teamPortfolio(team);
       const departments = portfolios.get(portfolio) ?? new Map<string, Team[]>();
       const departmentTeams = departments.get(team.department) ?? [];
       departmentTeams.push(team);
@@ -53,7 +56,7 @@ export function TeamSwitcher({
     });
 
     return Array.from(portfolios, ([portfolio, departments]) => ({
-      portfolio,
+      portfolio: displayPortfolioName(portfolio),
       departments: Array.from(departments, ([department, departmentTeams]) => ({
         department,
         teams: departmentTeams.sort((a, b) => a.name.localeCompare(b.name)),
@@ -93,7 +96,7 @@ export function TeamSwitcher({
         aria-expanded={open}
         aria-haspopup="listbox"
       >
-        <span className={styles.triggerText}>{selected?.name ?? 'No teams'}</span>
+        <span className={styles.triggerText}>Teams</span>
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className={`${styles.triggerIcon} ${open ? styles.isOpen : ''}`} aria-hidden="true">
           <path d="M3 4.5L6 7.5L9 4.5" />
         </svg>
@@ -218,4 +221,24 @@ export function TeamSwitcher({
       )}
     </div>
   );
+}
+
+function teamPortfolio(team: Team): string {
+  if (team.name === 'Top Up Vouchers') {
+    return 'Organization';
+  }
+
+  return team.portfolio || 'Organization';
+}
+
+function displayPortfolioName(portfolio: string): string {
+  if (portfolio === 'Organization') {
+    return 'Bet Software';
+  }
+
+  if (portfolio === 'Technology') {
+    return 'Hollywood bets';
+  }
+
+  return portfolio;
 }

@@ -7,47 +7,26 @@
 .logoArea {
   display: flex;
   align-items: center;
-  gap: var(--spacing-3);
   padding: 0 var(--spacing-4);
   height: 4rem; /* 16 * 4px = 64px */
   border-bottom: 1px solid var(--color-border);
   flex-shrink: 0;
 }
 
-.logoIcon {
+.logoLockup {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
-  color: white;
-  font-size: 0.875rem;
-  font-weight: 700;
-  flex-shrink: 0;
-  box-shadow: var(--shadow-glow);
-}
-
-.logoTextContainer {
+  width: 100%;
+  height: 100%;
   min-width: 0;
 }
 
-.logoTitle {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.logoSubtitle {
-  font-size: 0.6875rem; /* 11px */
-  color: var(--color-text-tertiary);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.logoImage {
+  width: 100%;
+  height: auto;
+  max-height: 2.5rem;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .navSection {

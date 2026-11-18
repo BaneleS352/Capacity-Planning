@@ -81,8 +81,8 @@ export function DashboardTopBar({ onMenuClick }: DashboardTopBarProps) {
           BN
         </div>
         <div className={styles.userInfo}>
-          <div className={styles.userName}>B. Ndaba</div>
-          <div className={styles.userRole}>Eng. Manager</div>
+          <div className={styles.userName}>Thabang Ledwaba</div>
+          <div className={styles.userRole}>Tech Lead</div>
         </div>
       </div>
     </header>

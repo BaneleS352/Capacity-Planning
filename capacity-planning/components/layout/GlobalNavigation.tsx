@@ -1,8 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { MAIN_NAV_ITEMS, PRODUCT_NAME, PRODUCT_SUBTITLE, SECONDARY_NAV_ITEMS } from '@/constants/navigation';
+import logo from '../../logo.png';
+import { MAIN_NAV_ITEMS, SECONDARY_NAV_ITEMS } from '@/constants/navigation';
 import styles from './GlobalNavigation.module.css';
 
 interface GlobalNavigationProps {
@@ -95,15 +97,14 @@ export function GlobalNavigation({ collapsed, onToggle, onMobileClose }: GlobalN
     <div className={styles.navContainer}>
       {/* Logo area */}
       <div className={styles.logoArea}>
-        <div className={styles.logoIcon}>
-          CP
+        <div className={styles.logoLockup} aria-label="Bet Software logo">
+          <Image
+            src={logo}
+            alt="Bet Software"
+            className={styles.logoImage}
+            priority
+          />
         </div>
-        {!collapsed && (
-          <div className={styles.logoTextContainer}>
-            <div className={styles.logoTitle}>{PRODUCT_NAME}</div>
-            <div className={styles.logoSubtitle}>{PRODUCT_SUBTITLE}</div>
-          </div>
-        )}
       </div>
 
       {/* Nav items */}

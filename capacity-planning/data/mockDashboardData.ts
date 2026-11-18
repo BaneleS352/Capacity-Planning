@@ -5,7 +5,7 @@ import type { BurndownPoint, ScopeChange, PlannedVsActual } from '@/types/sprint
 
 export const mockTeam: Team = {
   id: 'team-payments',
-  name: 'Payments Platform',
+  name: 'Withdrawals',
   engineeringManager: 'L. Dlamini',
   scrumMaster: 'N. van Wyk',
   productOwner: 'R. Maharaj',

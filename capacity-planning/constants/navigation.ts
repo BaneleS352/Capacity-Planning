@@ -20,5 +20,5 @@ export const SECONDARY_NAV_ITEMS: NavItem[] = [
   { label: 'Integrations', href: '/admin', icon: 'link', description: 'Jira & PaySpace' },
 ];
 
-export const PRODUCT_NAME = 'Capacity Planning';
-export const PRODUCT_SUBTITLE = 'HollywoodBets Engineering';
+export const PRODUCT_NAME = 'Bet Software';
+export const PRODUCT_SUBTITLE = 'Capacity Planning';

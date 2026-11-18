@@ -44,7 +44,7 @@ const ISSUE_TYPES: IssueType[] = ['Story', 'Bug', 'Task', 'Tech Debt', 'Spike', 
 export function mapApiTeam(team: ApiTeam): Team {
   return {
     id: team.id,
-    name: team.name,
+    name: displayTeamName(team.name),
     engineeringManager: setting(team.settings, 'engineering_manager') || 'Not assigned',
     scrumMaster: setting(team.settings, 'scrum_master') || 'Not assigned',
     productOwner: setting(team.settings, 'product_owner') || 'Not assigned',
@@ -348,6 +348,13 @@ function getWorkingDates(start: string, end: string): string[] {
 
 function setting(settings: Record<string, unknown>, key: string): string | null {
   return typeof settings[key] === 'string' ? settings[key] : null;
+}
+
+function displayTeamName(name: string): string {
+  if (name === 'Data Science') return 'Top Up Vouchers';
+  if (name === 'Customer Channels') return 'Affiliates';
+  if (name === 'Payments Platform') return 'Withdrawals';
+  return name;
 }
 
 function number(value: string | number | null | undefined, fallback = 0): number {

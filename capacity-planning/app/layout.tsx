@@ -3,8 +3,8 @@ import { AppShell } from "@/components/layout/AppShell";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Capacity Planning - HollywoodBets",
-  description: "Engineering capacity planning dashboard for HollywoodBets",
+  title: "Capacity Planning",
+  description: "Capacity Planning Website",
 };
 
 export default function RootLayout({
